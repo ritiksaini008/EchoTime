@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="logo">
+EchoTime
+</div>
+
+<div>
+
+<a href="/logout">
+Logout
+</a>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="dashboard-header">
+
+<h1>
+Welcome {{ username }}
+</h1>
+
+<br>
+
+<a href="/create_capsule" class="btn">
+Create Capsule
+</a>
+
+</div>
+
+{% for capsule in capsules %}
+
+<div class="card">
+
+<h3>
+{{ capsule.title }}
+</h3>
+
+<p>
+Unlock Date:
+{{ capsule.unlock_date }}
+</p>
+
+{% if capsule.unlocked %}
+
+<p class="unlocked">
+🟢 Unlocked
+</p>
+
+<a href="/capsule/{{ capsule.id }}">
+Open Capsule
+</a>
+
+{% else %}
+
+<p class="locked">
+🔒 Locked
+</p>
+
+<p>
+{{ capsule.days_left }}
+days remaining
+</p>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

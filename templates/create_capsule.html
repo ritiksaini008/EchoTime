@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Create Capsule</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h1>
+Create Future Capsule
+</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="title"
+placeholder="Title"
+required>
+
+<textarea
+name="message"
+rows="8"
+placeholder="Write your future message..."
+required>
+</textarea>
+
+<input
+type="date"
+name="unlock_date"
+required>
+
+<br><br>
+
+<button type="submit">
+Save Capsule
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
